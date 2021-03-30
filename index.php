@@ -1,7 +1,9 @@
 <?php
 
-$bus = TransportAbstract::initial('Bus');
-$bus->run();
+function testFoo(TransportCreatorAbstract $creator)
+{
+    echo "test funkcji TransportAbstract: " . $creator->createAndRunTransport();
+}
 
-$car = TransportAbstract::initial('Car');
-$car->run();
+testFoo(new BusCreator());
+testFoo(new CarCreator());
